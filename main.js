@@ -2,31 +2,31 @@ const buttons = document.querySelectorAll('button');
 
 for(let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener("click", function(){
-        const joueur = buttons[i].innerHTML;
+        const user = buttons[i].innerHTML;
         const robot = buttons[Math.floor(Math.random() * buttons.length)].innerHTML;
-        let resultat = "";
+        let result = "";
         
         //  Logique du jeu
-        if(joueur === robot){
-            resultat = "Egalité";
-        }else if((joueur === "Pierre" && robot === "Ciseaux") ||
-                  (joueur === "Feuille" && robot === "Pierre") || 
-                  (joueur === "Ciseaux" && robot === "Feuille")){
-            resultat = "Gagné !";
-        }else if((joueur === "Puits" && robot === "Ciseaux") ||
-                   (joueur === "Puits" && robot === "Pierre")){
-            resultat = "Gagné avec la technique secrète!";
+        if(user === robot){
+            result = "both players are tied";
+        }else if((user === "Rock" && robot === "Scissors") ||
+                  (user === "Paper" && robot === "Rock") || 
+                  (user === "Scissors" && robot === "Paper")){
+            result = "You Win";
+        }else if((user === "Well" && robot === "Scissors") ||
+                   (user === "Well" && robot === "Rock")){
+            result = "you win with the secret technique";
         }else{
-            resultat = "Perdu";
+            result = "You Lose";
          }
 
-         document.querySelector('.resultat').innerHTML = `
-            Joueur: ${joueur} </br>
-            Robot: ${robot} </br>
-            ${resultat} !
+         document.querySelector('.result').innerHTML = `
+            👤 : ${user} </br></br>
+            🤖 : ${robot} </br></br>
+            ${result} !
          `;
 
-        // console.log(`Joueur: ${joueur} vs Robot: ${robot}`);
+        // console.log(`user: ${user} vs Robot: ${robot}`);
 
     });
 }

@@ -6,7 +6,7 @@ for(let i = 0; i < buttons.length; i++){
         const robot = buttons[Math.floor(Math.random() * buttons.length)].innerHTML;
         let result = "";
         
-        //  Logique du jeu
+        //  Logic
         if(user === robot){
             result = "both players are tied";
         }else if((user === "Rock" && robot === "Scissors") ||
